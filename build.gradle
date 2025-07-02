@@ -1,0 +1,25 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:8.0.33'
+}
+
+application {
+   mainClass = 'com.sjprogramming.gui.StudentManagementGUI'
+
+}
+
+tasks.register('runConsole', JavaExec) {
+    group = 'application'
+    description = 'Run with console input support'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.sjprogramming.gui.StudentManagementGUI'
+
+    standardInput = System.in
+}
